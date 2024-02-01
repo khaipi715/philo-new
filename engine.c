@@ -6,7 +6,7 @@
 /*   By: lnaulak <lnaulak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 16:35:54 by lnaulak           #+#    #+#             */
-/*   Updated: 2024/01/31 15:56:26 by lnaulak          ###   ########.fr       */
+/*   Updated: 2024/02/01 14:03:41 by lnaulak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*thread_creation(void *philo_ptr)
 		philo->state = 's';
 	philo->creation_time = timestamp();
 	philo->t_last_meal = philo->creation_time;
-	while (1)
+	while (true)
 		if (threads(rules, philo) == 0)
 			return (NULL);
 	return (NULL);
@@ -48,8 +48,8 @@ int	death_checker(t_rules *rules)
 				return (0);
 			if (philo->t_last_meal + philo->rules->time_tdeath < timestamp())
 			{
-				action_print(rules, i + 1, "died");
 				pthread_mutex_lock(&rules->dieded_lock);
+				action_print(rules, i + 1, "died");
 				rules->dieded = true;
 				pthread_mutex_unlock(&rules->dieded_lock);
 				return (0);

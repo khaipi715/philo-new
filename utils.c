@@ -6,7 +6,7 @@
 /*   By: lnaulak <lnaulak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 16:37:47 by lnaulak           #+#    #+#             */
-/*   Updated: 2024/01/31 13:21:19 by lnaulak          ###   ########.fr       */
+/*   Updated: 2024/02/01 12:41:51 by lnaulak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ long long	time_diff(long long past, long long pres)
 
 void	action_print(t_rules *rules, int id, char *string)
 {
-	pthread_mutex_lock(&rules->dieded_lock);
+	pthread_mutex_lock(&rules->writing);
 	if (!(rules->dieded))
 	{
-		pthread_mutex_unlock(&rules->dieded_lock);
+		pthread_mutex_unlock(&rules->writing);
 		printf("%lli %i %s\n", timestamp()
 			- rules->philosophers[id - 1].creation_time, id, string);
 	}

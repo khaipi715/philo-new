@@ -6,7 +6,7 @@
 /*   By: lnaulak <lnaulak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 13:17:27 by lnaulak           #+#    #+#             */
-/*   Updated: 2024/01/31 15:12:38 by lnaulak          ###   ########.fr       */
+/*   Updated: 2024/02/01 12:38:15 by lnaulak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	init_philo(t_rules *rules)
 	philo = rules->philosophers;
 	i = -1;
 	pthread_mutex_init(&rules->read_fork, NULL);
+	pthread_mutex_init(&rules->writing, NULL);
+	pthread_mutex_init(&rules->dieded_lock, NULL);
 	rules->dieded = false;
 	while (++i < rules->nb_philo)
 	{
@@ -36,7 +38,6 @@ void	init_philo(t_rules *rules)
 		philo[i].rules = rules;
 		rules->avail[i] = true;
 		pthread_mutex_init(&rules->forks[i], NULL);
-		pthread_mutex_init(&rules->dieded_lock, NULL);
 	}
 }
 

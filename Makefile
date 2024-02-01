@@ -6,7 +6,7 @@
 #    By: lnaulak <lnaulak@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 10:34:24 by lnaulak           #+#    #+#              #
-#    Updated: 2024/02/01 11:47:25 by lnaulak          ###   ########.fr        #
+#    Updated: 2024/02/01 15:31:07 by lnaulak          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ NAME	= philo
 
 CLANG	= clang
 
-FLAGS	= -Wall -Wextra -Werror -g -O3 -fsanitize=thread
+FLAGS	= -Wall -Wextra -Werror -g -O3
+# -fsanitize=address
 
 
 INCLUDE	= -lpthread
